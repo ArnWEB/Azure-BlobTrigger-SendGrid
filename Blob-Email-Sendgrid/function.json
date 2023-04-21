@@ -1,0 +1,27 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "samples-workitems/{name}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "sendGrid",
+      "direction": "out",
+      "name": "sendgrid",
+      "apiKey": "AzureWebJobsStorage",
+      "to": "touser@gmail.com",
+      "from": "fromuser@gmail.com",
+      "subject": "New content uploaded",
+      "text": "HI there new contend is pushed in your blob storage"
+    }
+  ]
+}
